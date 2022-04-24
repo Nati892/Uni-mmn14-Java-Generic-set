@@ -79,9 +79,13 @@ public class Set<T> {
         Iterator<T> otherIterator = otherSet.iterator();
 
         if (otherIterator != null) {
-            while (otherIterator.hasNext() && result == true)
-                if (!this.isMember(otherIterator.next()))
-                    result = false;
+            while (otherIterator.hasNext() && result == true) {
+                T curr = otherIterator.next();
+                System.out.println("isSubset: " + curr);
+                if (!this.isMember(curr))
+                {  System.out.println("not a member");
+                    result = false;}
+            }
         }
         return result;
     }
