@@ -4,6 +4,10 @@ import java.util.Iterator;
 public class Set<T> {
     private ArrayList<T> _mySet;
 
+
+    /**
+     *
+     */
     public Set() {
         _mySet = new ArrayList<T>();
     }
@@ -26,7 +30,9 @@ public class Set<T> {
         }
     }
 
-
+    /**
+     * @param otherSet
+     */
     public void union(Set<T> otherSet) {
 
         Iterator<T> oIterator = otherSet.iterator();
@@ -41,6 +47,9 @@ public class Set<T> {
         }
     }
 
+    /**
+     * @param otherSet
+     */
     public void intersect(Set<T> otherSet) {
 
         Iterator<T> thisIterator = _mySet.iterator();
@@ -51,8 +60,8 @@ public class Set<T> {
         while (thisIterator.hasNext()) {
             T curr = thisIterator.next();
 
-            if (otherSet.isMember(curr)) {
-                _mySet.remove(curr);
+            if (!otherSet.isMember(curr)) {
+                thisIterator.remove();
             }
         }
 
@@ -80,6 +89,10 @@ public class Set<T> {
 
     //this function checks if found a specific object in the arrayList
 
+    /**
+     * @param member
+     * @return
+     */
     public boolean isMember(T member) {
         boolean result = false;
         if (member == null)
@@ -87,7 +100,9 @@ public class Set<T> {
         return (search(member));
     }
 
-
+    /**
+     * @param newMember
+     */
     public void insert(T newMember) {
         if (newMember == null)
             return;
@@ -96,7 +111,9 @@ public class Set<T> {
             _mySet.add(newMember);
     }
 
-
+    /**
+     * @param rmMember
+     */
     public void delete(T rmMember) {
         if (rmMember == null)
             return;
@@ -132,10 +149,14 @@ public class Set<T> {
         return result;
     }
 
-
-    public String toString(){
-        return "Set: "+_mySet.toString();
-
+    public int size() {
+        return _mySet.size();
     }
+
+    public String toString() {
+        return "Set: " + _mySet.toString();
+    }
+
+
 }
 
