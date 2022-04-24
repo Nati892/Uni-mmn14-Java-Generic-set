@@ -15,6 +15,12 @@ public class TestSetClass {
 
     }
 
+    //TODO delete method
+    private static <E> void toDel(E x, E y) {
+        System.out.println(x.equals(y));
+
+
+    }
 
     private static void test3Sets() {
         System.out.println("testing 3 Integer sets");
@@ -47,11 +53,15 @@ public class TestSetClass {
         set4.insert(new Integer(inputNum()));
         set4.insert(new Integer(inputNum()));
 
-        System.out.println("set4: "+set4) ;
+
+        System.out.println("set4: " + set4);
+
         if (set1.isSubset(set4))
             System.out.println("the new set is a subset of set1");
+
         if (set2.isSubset(set4))
             System.out.println("the new set is a subset of set2");
+
         if (set3.isSubset(set4))
             System.out.println("the new set is a subset of set3");
 

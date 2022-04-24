@@ -73,6 +73,7 @@ public class Set<T> {
      * @param otherSet
      * @return
      */
+
     public boolean isSubset(Set<T> otherSet) {
         boolean result = true;
 
@@ -81,10 +82,9 @@ public class Set<T> {
         if (otherIterator != null) {
             while (otherIterator.hasNext() && result == true) {
                 T curr = otherIterator.next();
-                System.out.println("isSubset: " + curr);
-                if (!this.isMember(curr))
-                {  System.out.println("not a member");
-                    result = false;}
+                if (!this.isMember(curr)) {
+                    result = false;
+                }
             }
         }
         return result;
@@ -146,7 +146,8 @@ public class Set<T> {
             return result;
         Iterator<T> iterator = _mySet.iterator();
         while (iterator.hasNext() && !result) {
-            if (iterator.next().equals(toFind)) {
+            T curr = iterator.next();
+            if (curr.equals(toFind)) {
                 result = true;
             }
         }
