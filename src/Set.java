@@ -6,7 +6,7 @@ public class Set<T> {
 
 
     /**
-     *
+     * empty constructor
      */
     public Set() {
         _mySet = new ArrayList<T>();
@@ -20,6 +20,7 @@ public class Set<T> {
      */
     public Set(T[] other_set) {
         _mySet = new ArrayList<T>();
+
         for (int i = 0; i < other_set.length; i++) {
             if (other_set[i] != null) {
                 T curr = other_set[i];
@@ -31,7 +32,9 @@ public class Set<T> {
     }
 
     /**
-     * @param otherSet
+     * unites two sets into the 'this' set
+     *
+     * @param otherSet the second set to unite with
      */
     public void union(Set<T> otherSet) {
 
@@ -48,7 +51,9 @@ public class Set<T> {
     }
 
     /**
-     * @param otherSet
+     * intersects two sets into the 'this' set
+     *
+     * @param otherSet the second set to intersect with
      */
     public void intersect(Set<T> otherSet) {
 
@@ -70,8 +75,8 @@ public class Set<T> {
     /**
      * null counts as an empty set which is a subset of every other set
      *
-     * @param otherSet
-     * @return
+     * @param otherSet the set to check if subset
+     * @return boolean if it's a subset or not
      */
 
     public boolean isSubset(Set<T> otherSet) {
@@ -91,11 +96,11 @@ public class Set<T> {
     }
 
 
-    //this function checks if found a specific object in the arrayList
-
     /**
-     * @param member
-     * @return
+     * this function checks if object is a member of current set
+     *
+     * @param member the object to check if member
+     * @return boolean if it's a member or not
      */
     public boolean isMember(T member) {
         boolean result = false;
@@ -105,7 +110,9 @@ public class Set<T> {
     }
 
     /**
-     * @param newMember
+     * inserts a member to the current set
+     *
+     * @param newMember the member to be entered
      */
     public void insert(T newMember) {
         if (newMember == null)
@@ -116,7 +123,9 @@ public class Set<T> {
     }
 
     /**
-     * @param rmMember
+     * removes a member from this set(does nothing if not present in set)
+     *
+     * @param rmMember the member to be removed
      */
     public void delete(T rmMember) {
         if (rmMember == null)
@@ -139,12 +148,14 @@ public class Set<T> {
             return null;
     }
 
-
+    //private method the helps search a member in the set
     private boolean search(T toFind) {
         boolean result = false;
         if (_mySet == null)
             return result;
+
         Iterator<T> iterator = _mySet.iterator();
+
         while (iterator.hasNext() && !result) {
             T curr = iterator.next();
             if (curr.equals(toFind)) {
@@ -154,6 +165,9 @@ public class Set<T> {
         return result;
     }
 
+    /**
+     * @return an int indicating the sets size
+     */
     public int size() {
         return _mySet.size();
     }

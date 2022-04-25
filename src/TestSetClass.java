@@ -11,18 +11,13 @@ public class TestSetClass {
     public static void main(String[] args) {
         scanner = new Scanner(System.in);//init scanner
 
-        test3Sets();
+        runfirstTests();//tests from first section
+        runsecondTests();//tests from second section
 
     }
 
-    //TODO delete method
-    private static <E> void toDel(E x, E y) {
-        System.out.println(x.equals(y));
 
-
-    }
-
-    private static void test3Sets() {
+    private static void runfirstTests() {
         System.out.println("testing 3 Integer sets");
 
         Set<Integer> set1 = new Set<Integer>();
@@ -42,53 +37,98 @@ public class TestSetClass {
         set1.union(set2);
         System.out.println("Union of set1 and set2: " + set1);
 
+
         //intersecting set1 and set3
         set1.intersect(set3);
         System.out.println("Intersect of set1 and set3: " + set1);
 
+
         Set<Integer> set4 = new Set<Integer>();
         System.out.println("Creating a 4'th set from two ints that you are going to input");
+
 
         System.out.println("input 2 numbers to a new set4");
         set4.insert(new Integer(inputNum()));
         set4.insert(new Integer(inputNum()));
 
-
+        //checking subset method of set4 in other sets
         System.out.println("set4: " + set4);
 
         if (set1.isSubset(set4))
             System.out.println("the new set is a subset of set1");
+        else
+            System.out.println("the new set isn't a subset of set1");
 
         if (set2.isSubset(set4))
             System.out.println("the new set is a subset of set2");
+        else
+            System.out.println("the new set isn't a subset of set2");
 
         if (set3.isSubset(set4))
             System.out.println("the new set is a subset of set3");
+        else
+            System.out.println("the new set isn't a subset of set3");
+
+        //now getting number and making a couple of things with it
+        System.out.println("now receiving another num and checking all kinds of stuff with it");
+        Integer userInput = new Integer(inputNum());
+
+        if (set1.isMember(userInput)) {
+            System.out.println(userInput + " is a member of set1");
+        } else {
+            System.out.println(userInput + " isn't a member of set1");
+        }
+        System.out.println("set1: " + set1);
+
+
+        set2.insert(userInput);
+        System.out.println("set2 after inserting " + userInput + " is: " + set2);
+
+        set3.delete(userInput);
+        System.out.println("set3 after deleting " + userInput + " is: " + set3);
 
 
     }
 
 
+    public static void runsecondTests() {
+        Set<Person> personSet = new Set<Person>();
+
+
+        //populating set with persons
+        personSet.insert(new Person("012345678", "firstPerson", "firstLastName", "1999"));
+        personSet.insert(new Person("123456789", "secondPerson", "secondLastName", "2000"));
+        personSet.insert(new Person("987654321", "my kid!", "gindi", "2028"));
+        personSet.insert(new Person("000000000", "jesus", "christ", "0000"));
+        personSet.insert(new Person("654789123", "niceGuy", "timeTravelers", "4585"));
+        System.out.println("created a set of Persons, here it is: " + personSet);
+
+        GenericMin genericMin = new GenericMin();
+
+        System.out.println("activating the generic min function, the guy with the lowest id here is : " + genericMin.Min(personSet));
+
+    }
+
+
+    //fills the Set with 10random numbers in range 0-100
     private static void fillIntegerSet(Set<Integer> set) {
 
         for (int i = 0; i < SETSIZE; i++) {//TODO make group a psfs
 
-            //could enter duplicates, so making sure that there are SIZE amount in each grop
+            //could enter duplicates, so making sure that there are SIZE amount in each group
             while (set.size() < i + 1) {
                 set.insert(rand.nextInt(UPPERBOUND));
             }
-
 
         }
 
     }
 
-
+    //get an int from the user
     private static int inputNum() {
         int res = 0;
         boolean good_input = false;
         while (!good_input) {
-            System.out.println("trying int");
             try {
                 System.out.println("please enter an integer");
                 res = Integer.parseInt(scanner.next());
@@ -99,7 +139,5 @@ public class TestSetClass {
         }
         return res;
     }
-
-
 }
 
