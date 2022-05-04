@@ -10,7 +10,7 @@ public class Person implements Comparable<Person> {
     private final int IDLENGTH = 9;
 
     public Person(String _id, String _firstName, String _familyName, String _yearOfBirth) {
-        if (_id == null) {
+        if (_id == null) {//make sure id is 9 digits long
             this._id = "000000000";
         } else {
             if (_id.length() == IDLENGTH) this._id = _id;
@@ -68,12 +68,12 @@ public class Person implements Comparable<Person> {
     }
 
     //this is a helper method that is basically the logic for the compareTo method
-    //it compares the id of both members by a lexicographic order
+    //it compares the id of both members in a lexicographic order
     private int compareLexicographic(String first, String second) {
         int result = 0;
         if (first != null && second != null) {
 
-            for (int i = 0; i < IDLENGTH && result == 0; i++) {
+            for (int i = 0; i < IDLENGTH && result == 0; i++) {//lexicographic comparison
                 if (first.charAt(i) > second.charAt(i)) {
                     result = 1;
                 } else {
@@ -94,7 +94,7 @@ public class Person implements Comparable<Person> {
                 if (first == null)
                     return -1;//second is big
                 else
-                    return 1;//first is big}
+                    return 1;//first is big
             }
 
 

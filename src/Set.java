@@ -24,7 +24,7 @@ public class Set<T> {
         for (int i = 0; i < other_set.length; i++) {
             if (other_set[i] != null) {
                 T curr = other_set[i];
-                if (!search(curr)) {
+                if (search(curr)==null) {
                     _mySet.add(curr);
                 }
             }
@@ -44,7 +44,7 @@ public class Set<T> {
 
         while (oIterator.hasNext()) {
             T curr = oIterator.next();
-            if (!search(curr)) {
+            if (search(curr)==null) {
                 _mySet.add(curr);
             }
         }
@@ -106,7 +106,7 @@ public class Set<T> {
         boolean result = false;
         if (member == null)
             return result;
-        return (search(member));
+        return (search(member)!=null);
     }
 
     /**
@@ -149,17 +149,17 @@ public class Set<T> {
     }
 
     //private method the helps search a member in the set
-    private boolean search(T toFind) {
-        boolean result = false;
+    private T search(T toFind) {
+        T result = null;
         if (_mySet == null)
             return result;
 
         Iterator<T> iterator = _mySet.iterator();
 
-        while (iterator.hasNext() && !result) {
+        while (iterator.hasNext() && result==null) {
             T curr = iterator.next();
             if (curr.equals(toFind)) {
-                result = true;
+                result = curr;
             }
         }
         return result;

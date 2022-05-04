@@ -91,7 +91,7 @@ public class TestSetClass {
     }
 
 
-    public static void runsecondTests() {
+    private static void runsecondTests() {
         Set<Person> personSet = new Set<Person>();
 
 
@@ -113,7 +113,7 @@ public class TestSetClass {
     //fills the Set with 10random numbers in range 0-100
     private static void fillIntegerSet(Set<Integer> set) {
 
-        for (int i = 0; i < SETSIZE; i++) {//TODO make group a psfs
+        for (int i = 0; i < SETSIZE; i++) {
 
             //could enter duplicates, so making sure that there are SIZE amount in each group
             while (set.size() < i + 1) {
