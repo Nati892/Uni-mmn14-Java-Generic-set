@@ -1,4 +1,3 @@
-import java.sql.PseudoColumnUsage;
 
 public class Person implements Comparable<Person> {
 
