@@ -104,7 +104,7 @@ public class Person implements Comparable<Person> {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "\nPerson{" +
                 "_id='" + _id + '\'' +
                 ", _firstName='" + _firstName + '\'' +
                 ", _familyName='" + _familyName + '\'' +

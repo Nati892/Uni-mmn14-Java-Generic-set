@@ -35,16 +35,16 @@ public class TestSetClass {
 
         //uniting set1 and set2
         set1.union(set2);
-        System.out.println("Union of set1 and set2: " + set1);
+        System.out.println("\n\nUnion of set1 and set2: " + set1);
 
 
         //intersecting set1 and set3
         set1.intersect(set3);
-        System.out.println("Intersect of set1 and set3: " + set1);
+        System.out.println("\n\nIntersect of set1 and set3: " + set1);
 
 
         Set<Integer> set4 = new Set<Integer>();
-        System.out.println("Creating a 4'th set from two ints that you are going to input");
+        System.out.println("\n\nCreating a 4'th set from two ints that you are going to input");
 
 
         System.out.println("input 2 numbers to a new set4");
@@ -70,7 +70,7 @@ public class TestSetClass {
             System.out.println("the new set isn't a subset of set3");
 
         //now getting number and making a couple of things with it
-        System.out.println("now receiving another num and checking all kinds of stuff with it");
+        System.out.println("\n\nnow receiving another num and checking all kinds of stuff with it");
         Integer userInput = new Integer(inputNum());
 
         if (set1.isMember(userInput)) {
@@ -101,11 +101,11 @@ public class TestSetClass {
         personSet.insert(new Person("987654321", "my kid!", "gindi", "2028"));
         personSet.insert(new Person("000000000", "jesus", "christ", "0000"));
         personSet.insert(new Person("654789123", "niceGuy", "timeTravelers", "4585"));
-        System.out.println("created a set of Persons, here it is: " + personSet);
+        System.out.println("\n\n\ncreated a set of Persons, here it is: " + personSet);
 
         GenericMin genericMin = new GenericMin();
 
-        System.out.println("activating the generic min function, the guy with the lowest id here is : " + genericMin.Min(personSet));
+        System.out.println("\n\nactivating the generic min function, the guy with the lowest id here is : " + genericMin.Min(personSet));
 
     }
 
