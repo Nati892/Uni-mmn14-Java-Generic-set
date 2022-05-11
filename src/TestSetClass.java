@@ -35,12 +35,12 @@ public class TestSetClass {
 
         //uniting set1 and set2
         set1.union(set2);
-        System.out.println("\n\nUnion of set1 and set2: " + set1);
+        System.out.println("\n\nUnion of set1 and set2(saved in set1): " + set1);
 
 
         //intersecting set1 and set3
         set1.intersect(set3);
-        System.out.println("\n\nIntersect of set1 and set3: " + set1);
+        System.out.println("\n\nIntersect of set1 and set3(saved in set1): " + set1);
 
 
         Set<Integer> set4 = new Set<Integer>();
